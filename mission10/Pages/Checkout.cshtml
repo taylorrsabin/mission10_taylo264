@@ -1,0 +1,45 @@
+﻿@page
+@model mission10.Models.Pages.CheckoutModel
+
+@*Checkout page layout*@
+
+<h2>My Cart</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @*Loop through each item in the basket/checkout cart*@ 
+        @foreach (var i in Model.basket.Items)
+        {
+            <tr>
+                <td>@i.Books.Title</td>
+                <td>@i.Quantity</td>
+                <td>$@i.Books.Price</td>
+                <td>$@(i.Quantity * i.Books.Price)</td>
+            </tr>
+        }
+
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total:</td>
+            <td>$@Model.basket.CalculateTotal().ToString()</td>
+        </tr>
+    </tfoot>
+
+</table>
+
+@*Return back to main bookstore page to continue shopping*@
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>

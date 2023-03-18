@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/tsabinqualtrics.com/.dotnet/store/|arch|/|tfm|",
+      "/Users/tsabinqualtrics.com/.nuget/packages"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+
+@*Layout of the bookstore, with each book being represented as a card and the different book categories filters listed*@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="bg-dark text-white p-2">
+        <span class="navbar-brand ml-2">Mission 10 - Bookstore Project</span>
+    </div>
+
+    <div class="row m-1 p-1">
+        @*List out book categories*@
+        <div class="col-3">
+            <vc:types></vc:types>
+        </div>
+
+        @*List out books*@
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
+

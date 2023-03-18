@@ -1,0 +1,39 @@
+﻿@{
+}
+
+@model Books
+
+@*View component of each book in the bookstore. Each is listed within its own card*@
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            @Model.Title
+            <span class="badge badge-pill badge-primary" style="float:right">
+                <small>$@Model.Price.ToString()</small>
+            </span>
+        </h4>
+    </div>
+    <div class="card-text p-1">
+        <ul>
+            <li>Author: @Model.Author</li>
+            <li>Publisher: @Model.Publisher</li>
+            <li>ISBN: @Model.Isbn</li>
+            <li>Classification: @Model.Classification</li>
+            <li>Category: @Model.Category</li>
+            <li>Page Count: @Model.PageCount</li>
+            <li>Price: @Model.Price</li>
+        </ul>
+    </div>
+
+    <form method="post" asp-page="/Checkout">
+
+        <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm" style="float:left">Checkout</button>
+        </span>
+    </form>
+
+</div>
+
